@@ -1,4 +1,5 @@
 import React from "react"
+import { useSelector } from "react-redux"
 
 /** components */
 import { Container } from "./Styled"
@@ -10,16 +11,21 @@ import Project from "./components/Project"
 const savedProjects = [
   { title: "Borgarlínan", time: 90000090 },
   { title: "Hjörtur", time: 2200009 },
+  { title: "Gummi", time: 0 },
 ]
 
 // overview of projects and registered time worked
 const Projects = () => {
+  const selectedJobs = useSelector(state => state.reducer.selectedJobs)
+  console.log(selectedJobs)
   return (
-    <Container>
-      {savedProjects.map(project => (
-        <Project title={project.title} time={project.time}></Project>
-      ))}
-    </Container>
+    <>
+      <Container>
+        {savedProjects.map((project, index) => (
+          <Project key={index} job={project}></Project>
+        ))}
+      </Container>
+    </>
   )
 }
 

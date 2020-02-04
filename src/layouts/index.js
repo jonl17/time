@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     return () => {
       window.removeEventListener("resize", callBack)
     }
-  }, [])
+  })
   return (
     <>
       <GlobalStyle></GlobalStyle>
