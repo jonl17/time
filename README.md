@@ -1,1 +1,1 @@
-# My Gatsby Starter template
+# Time tracker for my freelance work
