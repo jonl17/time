@@ -22,9 +22,11 @@ export const useInterval = (callback, delay) => {
 
 export const useUpdateJobsWithSelected = (myJobs, selectedJob) => {
   useEffect(() => {
-    for (var j = 0; j < myJobs.length; j++) {
-      if (selectedJob === myJobs[j]) {
-        myJobs[j] = selectedJob
+    if (myJobs.length !== null) {
+      for (var j = 0; j < myJobs.length; j++) {
+        if (selectedJob === myJobs[j]) {
+          myJobs[j] = selectedJob
+        }
       }
     }
   }, [myJobs, selectedJob])
