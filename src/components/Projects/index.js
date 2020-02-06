@@ -30,9 +30,13 @@ const Projects = () => {
   return (
     <>
       <Container>
-        {myJobs.map((project, index) => (
-          <Project key={index} job={project}></Project>
-        ))}
+        {myJobs !== null ? (
+          myJobs.map((project, index) => (
+            <Project key={index} job={project}></Project>
+          ))
+        ) : (
+          <></>
+        )}
       </Container>
     </>
   )
