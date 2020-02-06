@@ -13,6 +13,7 @@ const JobForm = () => {
   const { register, handleSubmit } = useForm()
   const dispatch = useDispatch()
   const onSubmit = job => {
+    console.log(job)
     dispatch({ type: TRIGGER_CREATE_JOB_WINDOW })
     const newJob = {
       title: job.title,
