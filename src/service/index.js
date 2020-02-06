@@ -15,7 +15,7 @@ export const clearStore = () => {
   }
 }
 
-const KEY = "MYJOBS"
+const KEY = "SAVEDJOBS"
 
 // saves jobs to local storage
 export const saveJobs = jobs => {
@@ -33,7 +33,7 @@ export const saveJobs = jobs => {
 }
 // load jobs from local storage
 export const loadJobs = () => {
-  if (validateStore()) {
+  if (validateStore() && localStorage.getItem(KEY)) {
     return JSON.parse(localStorage.getItem(KEY))
   }
   return []
