@@ -20,16 +20,19 @@ export const useInterval = (callback, delay) => {
   }, [delay])
 }
 
-export const useUpdateJobsWithSelected = (myJobs, selectedJobs) => {
+export const useUpdateJobsWithSelected = (myJobs, selectedJob) => {
+  console.log("mah jobs: " + myJobs)
+  console.log("mah selected jobs " + selectedJob)
   useEffect(() => {
-    for (var i = 0; i < selectedJobs.length; i++) {
+    if (selectedJob !== undefined) {
+      // only update if we have a selected job
       for (var j = 0; j < myJobs.length; j++) {
-        // TITLE HAS TO BE UNIQUE
-        if (selectedJobs[i].title === myJobs[j].title) {
-          myJobs[j] = selectedJobs[i]
+        if (selectedJob === myJobs[j]) {
+          myJobs[j] = selectedJob
         }
       }
     }
-  }, [myJobs, selectedJobs])
+  }, [myJobs, selectedJob])
+
   return myJobs
 }

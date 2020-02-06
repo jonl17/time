@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { SET_DEVICE, INIT_MY_JOBS } from "../state/action"
 import { useInterval, useUpdateJobsWithSelected } from "../hooks"
-import { saveJobs, loadJobs } from "../service"
+import { saveJobs, loadJobs, clearStore } from "../service"
 import { LOGIC } from "../constants"
 
 /** components */
@@ -27,12 +27,15 @@ const Layout = ({ children }) => {
   useEffect(() => {
     dispatch({ type: INIT_MY_JOBS, jobs: loadJobs() })
   }, [dispatch])
-
   // save jobs at an interval
   const myJobs = useSelector(state => state.reducer.myJobs)
-  const selectedJobs = useSelector(state => state.reducer.selectedJobs)
-  let updatedJobs = useUpdateJobsWithSelected(myJobs, selectedJobs)
-  useInterval(() => saveJobs(updatedJobs), LOGIC.savingInterval)
+  const selectedJob = useSelector(state => state.reducer.selectedJob)
+
+  let updatedJobs = useUpdateJobsWithSelected(myJobs, selectedJob)
+  useInterval(
+    () => saveJobs(selectedJob ? updatedJobs : myJobs),
+    LOGIC.savingInterval
+  )
 
   return (
     <>
