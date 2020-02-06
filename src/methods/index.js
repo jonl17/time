@@ -1,9 +1,18 @@
-export const timeConversion = millisec => {
-  var seconds = (millisec / 1000).toFixed(0)
+export const timeConversion = milliseconds => {
+  //Get hours from milliseconds
+  var hours = milliseconds / (1000 * 60 * 60)
+  var absoluteHours = Math.floor(hours)
+  var h = absoluteHours > 9 ? absoluteHours : "0" + absoluteHours
 
-  var minutes = (millisec / (1000 * 60)).toFixed(0)
+  //Get remainder from hours and convert to minutes
+  var minutes = (hours - absoluteHours) * 60
+  var absoluteMinutes = Math.floor(minutes)
+  var m = absoluteMinutes > 9 ? absoluteMinutes : "0" + absoluteMinutes
 
-  var hours = (millisec / (1000 * 60 * 60)).toFixed(0)
+  //Get remainder from minutes and convert to seconds
+  var seconds = (minutes - absoluteMinutes) * 60
+  var absoluteSeconds = Math.floor(seconds)
+  var s = absoluteSeconds > 9 ? absoluteSeconds : "0" + absoluteSeconds
 
-  return hours + " klst, " + minutes + " mín, " + seconds + " sek."
+  return h + ":" + m + ":" + s
 }
