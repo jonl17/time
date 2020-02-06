@@ -16,7 +16,7 @@ export const Container = styled.div`
   ${props =>
     props.counting &&
     css`
-      background: ${COLORS.blue};
+      background: ${COLORS.lightblue};
     `}
   &&:hover {
     transform: scale(0.95);

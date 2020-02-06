@@ -18,7 +18,6 @@ const JobForm = () => {
       title: job.title,
       time: job.time > 0 ? job.time * 60 * 60 * 1000 : 0, // convert to ms
     }
-    console.log("CREATING THIS JOB: " + newJob)
     dispatch({ type: ADD_NEW_JOB, job: newJob })
   }
   return (

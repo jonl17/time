@@ -59,7 +59,7 @@ const Project = ({ job }) => {
       selected={selectedJob !== undefined && selectedJob.title === job.title}
     >
       <Title>{job.title}</Title>
-      <Time time={timeConversion(time)}></Time>
+      <Time counting={counting && selected} time={timeConversion(time)}></Time>
     </Container>
   )
 }
