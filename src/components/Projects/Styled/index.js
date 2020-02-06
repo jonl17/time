@@ -6,6 +6,6 @@ export const Container = styled.div`
   grid-auto-rows: 200px;
   grid-gap: 50px;
   box-sizing: border-box;
-  padding-right: 50px;
+  padding-right: 200px;
 `
 export const Title = styled.h1``

@@ -1,5 +1,4 @@
 import React from "react"
-import { store } from "../service"
 import styled from "styled-components"
 
 /** components */
@@ -14,16 +13,18 @@ const Body = styled.div`
 `
 
 const Sidebar = styled.div`
-  height: 100%;
   width: 150px;
-  position: relative;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  box-sizing: border-box;
 `
 export const Title = styled.h1`
   text-transform: uppercase;
 `
 
 const index = () => {
-  store()
   return (
     <>
       <Body>

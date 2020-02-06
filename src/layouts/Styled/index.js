@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const PageContainer = styled.div`
   background: #f93943;
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   position: absolute;
   top: 0;

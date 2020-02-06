@@ -3,12 +3,17 @@ import {
   SELECT_JOB,
   DESELECT_JOB,
   TRIGGER_CREATE_JOB_WINDOW,
+  INIT_MY_JOBS,
+  ADD_NEW_JOB,
+  TRIGGER_COUNTING,
 } from "./action"
 
 const initialState = {
   device: undefined,
+  myJobs: [],
   selectedJobs: [],
   createJobWindowOpen: false,
+  counting: false,
 }
 
 export default (state = initialState, action) => {
@@ -37,6 +42,12 @@ export default (state = initialState, action) => {
       return { ...state, selectedJobs: newSelectedJobs }
     case TRIGGER_CREATE_JOB_WINDOW:
       return { ...state, createJobWindowOpen: !state.createJobWindowOpen }
+    case INIT_MY_JOBS:
+      return { ...state, myJobs: action.jobs } // should return a list of job objects from local storage
+    case ADD_NEW_JOB:
+      return { ...state, myJobs: [...state.myJobs, action.job] }
+    case TRIGGER_COUNTING:
+      return { ...state, counting: !state.counting }
     default:
       return state
   }

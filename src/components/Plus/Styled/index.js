@@ -6,8 +6,8 @@ export const Container = styled.div`
   height: 50px;
   box-sizing: border-box;
   position: absolute;
-  top: 0px;
-  left: 50%;
+  top: 50px;
+  right: 100px;
   margin-left: -25px;
   transition: 0.2s ease-in-out;
   transform: rotate(0deg);

@@ -4,6 +4,7 @@ import { TRIGGER_CREATE_JOB_WINDOW } from "../../state/action"
 
 /** components */
 import { Container, Sensor } from "./Styled"
+import JobForm from "./components/JobForm"
 
 const Createjob = () => {
   const createJobWindowOpen = useSelector(
@@ -17,7 +18,7 @@ const Createjob = () => {
         onClick={() => dispatch({ type: TRIGGER_CREATE_JOB_WINDOW })}
       ></Sensor>
       <Container open={createJobWindowOpen ? "open" : "closed"}>
-        CreateJob
+        <JobForm></JobForm>
       </Container>
     </>
   )

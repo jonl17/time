@@ -21,6 +21,3 @@ export const Title = styled.p`
   font-size: 23px;
   font-weight: bold;
 `
-export const Time = styled.p`
-  font-size: 20px;
-`

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { COLORS } from "../../../constants"
 
 export const Container = styled.div`
@@ -7,11 +7,17 @@ export const Container = styled.div`
   border: 4px solid ${COLORS.text};
   border-radius: 10px;
   position: absolute;
-  bottom: 0px;
+  bottom: 50px;
+  right: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.2s ease-in-out;
+  ${props =>
+    props.counting &&
+    css`
+      background: ${COLORS.blue};
+    `}
   &&:hover {
     transform: scale(0.95);
     cursor: pointer;
