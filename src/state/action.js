@@ -8,11 +8,6 @@ export const selectJob = job => ({
   type: SELECT_JOB,
   job,
 })
-export const DESELECT_JOB = "DESELECT_JOB"
-export const deselectJob = job => ({
-  type: DESELECT_JOB,
-  job,
-})
 export const TRIGGER_CREATE_JOB_WINDOW = "TRIGGER_CREATE_JOB_WINDOW"
 export const triggerCreateJobWindow = () => ({
   type: TRIGGER_CREATE_JOB_WINDOW,
@@ -30,4 +25,9 @@ export const addNewJob = job => ({
 export const TRIGGER_COUNTING = "TRIGGER_COUNTING"
 export const triggerCounting = () => ({
   type: TRIGGER_COUNTING,
+})
+export const DELETE_JOB = "DELETE_JOB"
+export const deleteJob = job => ({
+  type: DELETE_JOB,
+  job,
 })

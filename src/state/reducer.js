@@ -1,11 +1,11 @@
 import {
   SET_DEVICE,
   SELECT_JOB,
-  DESELECT_JOB,
   TRIGGER_CREATE_JOB_WINDOW,
   INIT_MY_JOBS,
   ADD_NEW_JOB,
   TRIGGER_COUNTING,
+  DELETE_JOB,
 } from "./action"
 
 const initialState = {
@@ -32,8 +32,6 @@ export default (state = initialState, action) => {
       return { ...state, device: device }
     case SELECT_JOB:
       return { ...state, selectedJob: action.job }
-    case DESELECT_JOB:
-      return { ...state, selectedJob: {} }
     case TRIGGER_CREATE_JOB_WINDOW:
       return { ...state, createJobWindowOpen: !state.createJobWindowOpen }
     case INIT_MY_JOBS:
@@ -45,6 +43,14 @@ export default (state = initialState, action) => {
       return { ...state, myJobs: [...state.myJobs, action.job] }
     case TRIGGER_COUNTING:
       return { ...state, counting: !state.counting }
+    case DELETE_JOB:
+      let newListOfJobs = []
+      for (var i = 0; i < state.myJobs.length; i++) {
+        if (state.myJobs[i] !== action.job) {
+          newListOfJobs.push(state.myJobs[i])
+        }
+      }
+      return { ...state, myJobs: newListOfJobs }
     default:
       return state
   }

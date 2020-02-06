@@ -22,7 +22,7 @@ const Projects = () => {
   return (
     <>
       <Container>
-        {myJobs !== null ? (
+        {myJobs !== undefined ? (
           myJobs.map((project, index) => (
             <Project key={index} job={project}></Project>
           ))
