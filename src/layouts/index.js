@@ -30,9 +30,13 @@ const Layout = ({ children }) => {
 
   // save jobs at an interval
   const myJobs = useSelector(state => state.reducer.myJobs)
-  const selectedJobs = useSelector(state => state.reducer.selectedJobs)
-  let updatedJobs = useUpdateJobsWithSelected(myJobs, selectedJobs)
-  useInterval(() => saveJobs(updatedJobs), LOGIC.savingInterval)
+  const selectedJob = useSelector(state => state.reducer.selectedJob)
+
+  let updatedJobs = useUpdateJobsWithSelected(myJobs, selectedJob)
+  useInterval(
+    () => saveJobs(selectedJob ? updatedJobs : myJobs),
+    LOGIC.savingInterval
+  )
 
   return (
     <>

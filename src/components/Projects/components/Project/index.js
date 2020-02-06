@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { timeConversion } from "../../../../methods"
 import { useDispatch, useSelector } from "react-redux"
-import {
-  SELECT_JOB,
-  DESELECT_JOB,
-  INIT_MY_JOBS,
-} from "../../../../state/action"
+import { SELECT_JOB, INIT_MY_JOBS } from "../../../../state/action"
 import { useInterval } from "../../../../hooks"
 
 /** components */
@@ -23,18 +19,22 @@ const updateJobTime = (myJobs, thisJob, dispatch, time) => {
 }
 
 const Project = ({ job }) => {
-  const [selected, select] = useState(false)
   const [time, incrementTime] = useState(job.time)
+  const [selected, select] = useState(false)
   const dispatch = useDispatch()
+
   const counting = useSelector(state => state.reducer.counting)
   const myJobs = useSelector(state => state.reducer.myJobs)
+  const selectedJob = useSelector(state => state.reducer.selectedJob)
+
   useEffect(() => {
-    if (selected) {
-      dispatch({ type: SELECT_JOB, job: job })
+    if (selectedJob !== undefined && selectedJob.title === job.title) {
+      select(true)
     } else {
-      dispatch({ type: DESELECT_JOB, job: job })
+      select(false)
     }
-  }, [selected, job, dispatch])
+  }, [selectedJob, job.title])
+
   // if selected && counting , increment this item.time in myJobs array
   useInterval(
     () => (selected && counting ? incrementTime(t => t + 1000) : {}),
@@ -43,12 +43,20 @@ const Project = ({ job }) => {
   useEffect(() => {
     updateJobTime(myJobs, job, dispatch, time)
   }, [time, job, myJobs, dispatch])
+
+  const selectionCallback = () => {
+    select(!selected)
+    if (selectedJob === job) {
+      dispatch({ type: SELECT_JOB, job: undefined })
+    } else {
+      dispatch({ type: SELECT_JOB, job: job })
+    }
+  }
+
   return (
     <Container
-      onClick={() => {
-        select(!selected)
-      }}
-      selected={selected}
+      onClick={() => selectionCallback()}
+      selected={selectedJob !== undefined && selectedJob.title === job.title}
     >
       <Title>{job.title}</Title>
       <Time time={timeConversion(time)}></Time>
