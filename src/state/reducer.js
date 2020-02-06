@@ -46,6 +46,9 @@ export default (state = initialState, action) => {
       return { ...state, myJobs: action.jobs } // should return a list of job objects from local storage
     case ADD_NEW_JOB:
       console.log(state.myJobs)
+      if (state.myJobs === null) {
+        return { ...state, myJobs: [action.job] }
+      }
       return { ...state, myJobs: [...state.myJobs, action.job] }
     case TRIGGER_COUNTING:
       return { ...state, counting: !state.counting }
