@@ -17,12 +17,11 @@ const Projects = () => {
   const counting = useSelector(state => state.reducer.counting)
   const selectedJob = useSelector(state => state.reducer.selectedJob)
   stopCountingIfNoJobIsSelected(dispatch, selectedJob, counting)
-
   const myJobs = useSelector(state => state.reducer.myJobs)
   return (
     <>
       <Container>
-        {myJobs !== undefined ? (
+        {myJobs.length !== 0 ? (
           myJobs.map((project, index) => (
             <Project key={index} job={project}></Project>
           ))
