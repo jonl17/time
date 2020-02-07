@@ -6,6 +6,14 @@ export const Form = styled.form`
   flex-direction: column;
   height: 100%;
   width: 100%;
+  input {
+    outline: none;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `
 export const Label = styled.label`
   color: black;
@@ -21,7 +29,6 @@ export const Input = styled.input`
   font-size: 40px;
   margin: auto;
   text-align: center;
-  font-style: italic;
 `
 export const SubmitButton = styled.input`
   position: absolute;

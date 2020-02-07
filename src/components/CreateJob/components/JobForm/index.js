@@ -16,26 +16,25 @@ const JobForm = () => {
   const onSubmit = job => {
     dispatch({ type: TRIGGER_CREATE_JOB_WINDOW })
     const newJob = generateNewJob(job)
-    console.log(newJob)
     dispatch({ type: ADD_NEW_JOB, job: newJob })
+    document.getElementById("form").reset()
   }
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form id="form" onSubmit={handleSubmit(onSubmit)}>
       <Label>
         <Input
           ref={register({ required: true })}
-          placeholder="Nafn..."
+          placeholder="Nafn"
           type="text"
           name="title"
         ></Input>
       </Label>
       <Label>
         <Input
-          ref={register}
-          placeholder="Byrjunartími..."
+          ref={register({ required: true })}
+          placeholder="Byrjunartími(klst)"
           type="number"
           name="time"
-          defaultValue={0}
         ></Input>
       </Label>
       <SubmitButton type="submit" value="Búa til"></SubmitButton>

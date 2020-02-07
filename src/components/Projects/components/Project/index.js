@@ -5,8 +5,9 @@ import { SELECT_JOB, INIT_MY_JOBS } from "../../../../state/action"
 import { useInterval } from "../../../../hooks"
 
 /** components */
-import { Container, Title } from "./Styled"
+import { Container } from "./Styled"
 import Time from "./components/Time"
+import Title from "./components/Title"
 
 const updateJobTime = (myJobs, thisJob, dispatch, time) => {
   let newJobs = myJobs
@@ -58,7 +59,7 @@ const Project = ({ job }) => {
       onClick={() => selectionCallback()}
       selected={selectedJob !== undefined && selectedJob.id === job.id}
     >
-      <Title>{job.title}</Title>
+      <Title job={job} text={job.title}></Title>
       <Time counting={counting && selected} time={timeConversion(time)}></Time>
     </Container>
   )

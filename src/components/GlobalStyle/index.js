@@ -8,5 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     html, body {
         margin: 0;
     }
+    ::placeholder {
+        color: #FCECC9;
+     }
 
 `

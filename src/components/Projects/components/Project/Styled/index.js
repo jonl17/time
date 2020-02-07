@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components"
-import { COLORS } from "../../../../../constants"
 
 export const Container = styled.div`
   border: 4px solid;
@@ -12,14 +11,12 @@ export const Container = styled.div`
   transition: 0.2s ease-in-out;
   &&:hover {
     cursor: pointer;
-    background: linear-gradient(145deg, #4da7db, #5bc6ff);
   }
   ${props =>
     props.selected &&
     css`
-      border: none;
+      border: 0px solid;
       background: linear-gradient(145deg, #4da7db, #5bc6ff);
-      box-shadow: 10px 10px 0px ${COLORS.blue};
     `}
 `
 export const Title = styled.p`
