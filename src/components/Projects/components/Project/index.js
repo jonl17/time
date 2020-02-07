@@ -11,7 +11,7 @@ import Time from "./components/Time"
 const updateJobTime = (myJobs, thisJob, dispatch, time) => {
   let newJobs = myJobs
   for (var i = 0; i < newJobs.length; i++) {
-    if (newJobs[i].title === thisJob.title) {
+    if (newJobs[i].id === thisJob.id) {
       newJobs[i].time = time
       dispatch({ type: INIT_MY_JOBS, jobs: newJobs })
     }
@@ -28,12 +28,12 @@ const Project = ({ job }) => {
   const selectedJob = useSelector(state => state.reducer.selectedJob)
 
   useEffect(() => {
-    if (selectedJob !== undefined && selectedJob.title === job.title) {
+    if (selectedJob !== undefined && selectedJob.id === job.id) {
       select(true)
     } else {
       select(false)
     }
-  }, [selectedJob, job.title])
+  }, [selectedJob, job.id])
 
   // if selected && counting , increment this item.time in myJobs array
   useInterval(
@@ -56,7 +56,7 @@ const Project = ({ job }) => {
   return (
     <Container
       onClick={() => selectionCallback()}
-      selected={selectedJob !== undefined && selectedJob.title === job.title}
+      selected={selectedJob !== undefined && selectedJob.id === job.id}
     >
       <Title>{job.title}</Title>
       <Time counting={counting && selected} time={timeConversion(time)}></Time>

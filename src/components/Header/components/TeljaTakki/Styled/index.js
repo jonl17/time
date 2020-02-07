@@ -1,14 +1,11 @@
 import styled, { css } from "styled-components"
-import { COLORS } from "../../../constants"
+import { COLORS } from "../../../../../constants"
 
 export const Container = styled.div`
-  height: 65px;
-  width: 100%;
+  height: 75px;
+  width: 100px;
   border: 4px solid ${COLORS.text};
   border-radius: 10px;
-  position: absolute;
-  bottom: 50px;
-  right: 40px;
   display: flex;
   justify-content: center;
   align-items: center;

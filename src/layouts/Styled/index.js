@@ -8,6 +8,6 @@ export const PageContainer = styled.div`
   top: 0;
   left: 0;
   box-sizing: border-box;
-  padding: 50px;
+  padding: 150px 50px;
   display: flex;
 `

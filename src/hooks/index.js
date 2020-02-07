@@ -21,8 +21,6 @@ export const useInterval = (callback, delay) => {
 }
 
 export const useUpdateJobsWithSelected = (myJobs, selectedJob) => {
-  console.log("mah jobs: " + myJobs)
-  console.log("mah selected jobs " + selectedJob)
   useEffect(() => {
     if (selectedJob !== undefined) {
       // only update if we have a selected job

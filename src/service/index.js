@@ -1,3 +1,6 @@
+const OLD_KEY = "SAVEDJOBS"
+const KEY = "NEWSAVEDJOBS"
+
 const validateStore = () => {
   return localStorage
 }
@@ -15,8 +18,6 @@ export const clearStore = () => {
   }
 }
 
-const KEY = "SAVEDJOBS"
-
 // saves jobs to local storage
 export const saveJobs = jobs => {
   if (validateStore()) {
@@ -33,6 +34,11 @@ export const saveJobs = jobs => {
 }
 // load jobs from local storage
 export const loadJobs = () => {
+  // first check if we have an old version saved in storage
+  // then clean it up
+  if (validateStore() && localStorage.getItem(OLD_KEY)) {
+    localStorage.removeItem(OLD_KEY)
+  }
   if (validateStore() && localStorage.getItem(KEY)) {
     return JSON.parse(localStorage.getItem(KEY))
   }

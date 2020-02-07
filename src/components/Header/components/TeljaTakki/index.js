@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 
 /** components */
 import { Container, Text } from "./Styled"
-import { TRIGGER_COUNTING } from "../../state/action"
+import { TRIGGER_COUNTING } from "../../../../state/action"
 
 const Teljatakki = () => {
   const selectedJob = useSelector(state => state.reducer.selectedJob)

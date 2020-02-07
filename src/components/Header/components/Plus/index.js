@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 /** components */
 import { Container, Line } from "./Styled"
-import { TRIGGER_CREATE_JOB_WINDOW } from "../../state/action"
+import { TRIGGER_CREATE_JOB_WINDOW } from "../../../../state/action"
 
 const Plus = () => {
   const dispatch = useDispatch()

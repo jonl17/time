@@ -5,6 +5,7 @@ import {
   ADD_NEW_JOB,
   TRIGGER_CREATE_JOB_WINDOW,
 } from "../../../../state/action"
+import { generateNewJob } from "../../../../methods"
 
 /** components */
 import { Form, Label, Input, SubmitButton } from "./Styled"
@@ -14,10 +15,8 @@ const JobForm = () => {
   const dispatch = useDispatch()
   const onSubmit = job => {
     dispatch({ type: TRIGGER_CREATE_JOB_WINDOW })
-    const newJob = {
-      title: job.title,
-      time: job.time > 0 ? job.time * 60 * 60 * 1000 : 0, // convert to ms
-    }
+    const newJob = generateNewJob(job)
+    console.log(newJob)
     dispatch({ type: ADD_NEW_JOB, job: newJob })
   }
   return (

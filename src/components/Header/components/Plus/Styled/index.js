@@ -1,14 +1,10 @@
 import styled, { css } from "styled-components"
-import { COLORS } from "../../../constants"
+import { COLORS } from "../../../../../constants"
 
 export const Container = styled.div`
   width: 50px;
   height: 50px;
   box-sizing: border-box;
-  position: absolute;
-  top: 50px;
-  right: 100px;
-  margin-left: -25px;
   transition: 0.2s ease-in-out;
   transform: rotate(0deg);
   z-index: 8;
