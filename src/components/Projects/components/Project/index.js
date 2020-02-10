@@ -8,6 +8,8 @@ import { useInterval } from "../../../../hooks"
 import { Container } from "./Styled"
 import Time from "./components/Time"
 import Title from "./components/Title"
+import SelectedBox from "./components/SelectedBox"
+import Delete from "./components/Delete"
 
 const updateJobTime = (myJobs, thisJob, dispatch, time) => {
   let newJobs = myJobs
@@ -57,15 +59,17 @@ const Project = ({ job }) => {
 
   return (
     <>
-      <Container
-        onClick={() => selectionCallback()}
-        selected={selectedJob !== undefined && selectedJob.id === job.id}
-      >
+      <Container>
+        <Delete job={job}></Delete>
         <Title job={job} text={job.title}></Title>
         <Time
           counting={counting && selected}
           time={timeConversion(time)}
         ></Time>
+        <SelectedBox
+          onClick={() => selectionCallback()}
+          selected={selectedJob !== undefined && selectedJob.id === job.id}
+        ></SelectedBox>
       </Container>
     </>
   )

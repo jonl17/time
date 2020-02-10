@@ -7,7 +7,9 @@ export const Input = styled.input`
   font-size: 23px;
   font-weight: bold;
   color: ${COLORS.text};
-  width: 100%;
+  width: 85%;
+  height: 25px;
+  box-sizing: border-box;
   ::placeholder {
     ${COLORS.text};
   }

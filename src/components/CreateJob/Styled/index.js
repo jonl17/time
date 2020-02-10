@@ -20,13 +20,6 @@ export const Sensor = styled.div`
 export const Container = styled.div`
   z-index: 8;
   position: fixed;
-  height: 400px;
-  width: 600px;
-  background: ${COLORS.text};
-  top: 50%;
-  left: 50%;
-  margin-left: -300px;
-  margin-top: -200px;
   opacity: 0;
   pointer-events: none;
   transition: 0.2s ease-in-out;
@@ -35,5 +28,20 @@ export const Container = styled.div`
     css`
       opacity: 1;
       pointer-events: all;
+    `}
+  height: 85vh;
+  width: 100%;
+  left: 0;
+  top: 100px;
+  ${props =>
+    props.device === `browser` &&
+    css`
+      height: 400px;
+      width: 600px;
+      top: 50%;
+      left: 50%;
+      margin-left: -300px;
+      margin-top: -200px;
+      border: 4px solid ${COLORS.text};
     `}
 `

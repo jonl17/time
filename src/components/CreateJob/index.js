@@ -11,13 +11,14 @@ const Createjob = () => {
     state => state.reducer.createJobWindowOpen
   )
   const dispatch = useDispatch()
+  const device = useSelector(state => state.reducer.device)
   return (
     <>
       <Sensor
         open={createJobWindowOpen ? "open" : "closed"}
         onClick={() => dispatch({ type: TRIGGER_CREATE_JOB_WINDOW })}
       ></Sensor>
-      <Container open={createJobWindowOpen ? "open" : "closed"}>
+      <Container device={device} open={createJobWindowOpen ? "open" : "closed"}>
         <JobForm></JobForm>
       </Container>
     </>

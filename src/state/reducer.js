@@ -43,7 +43,7 @@ export default (state = initialState, action) => {
     case DELETE_JOB:
       let newListOfJobs = []
       for (var i = 0; i < state.myJobs.length; i++) {
-        if (state.myJobs[i] !== action.job) {
+        if (state.myJobs[i].id !== action.job.id) {
           newListOfJobs.push(state.myJobs[i])
         }
       }

@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { SET_DEVICE, INIT_MY_JOBS } from "../state/action"
 import { useInterval, useUpdateJobsWithSelected } from "../hooks"
-import { saveJobs, loadJobs, clearStore } from "../service"
+import { saveJobs, loadJobs } from "../service"
 import { LOGIC } from "../constants"
 
 /** components */

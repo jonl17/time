@@ -37,7 +37,7 @@ const JobForm = () => {
           name="time"
         ></Input>
       </Label>
-      <SubmitButton type="submit" value="Búa til"></SubmitButton>
+      <SubmitButton type="submit" value="+"></SubmitButton>
     </Form>
   )
 }

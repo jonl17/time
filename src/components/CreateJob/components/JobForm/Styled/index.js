@@ -4,8 +4,12 @@ import { COLORS } from "../../../../../constants"
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  background: ${COLORS.red};
   input {
     outline: none;
   }
@@ -21,7 +25,7 @@ export const Label = styled.label`
   width: 100%;
 `
 export const Input = styled.input`
-  background: ${COLORS.text};
+  background: ${COLORS.red};
   border: none;
   height: 100%;
   width: 100%;
@@ -31,15 +35,12 @@ export const Input = styled.input`
   text-align: center;
 `
 export const SubmitButton = styled.input`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 50px;
-  width: 100px;
-  border: 1px solid ${COLORS.text};
+  border: none;
   background: ${COLORS.blue};
-  font-size: 20px;
-  padding: 0;
-  margin: 0;
-  border-radius: 10px;
+  font-size: 75px;
+  box-sizing: border-box;
+  margin: 35px;
+  width: 100px;
+  height: 300px;
+  margin: auto;
 `

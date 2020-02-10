@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components"
 
 export const Container = styled.div`
+  position: relative;
   border: 4px solid;
   display: inline-block;
   box-sizing: border-box;
@@ -9,9 +10,6 @@ export const Container = styled.div`
   width: 100%;
   border-radius: 10px;
   transition: 0.2s ease-in-out;
-  &&:hover {
-    cursor: pointer;
-  }
   ${props =>
     props.selected &&
     css`
