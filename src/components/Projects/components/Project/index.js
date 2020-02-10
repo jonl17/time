@@ -22,6 +22,7 @@ const updateJobTime = (myJobs, thisJob, dispatch, time) => {
 const Project = ({ job }) => {
   const [time, incrementTime] = useState(job.time)
   const [selected, select] = useState(false)
+
   const dispatch = useDispatch()
 
   const counting = useSelector(state => state.reducer.counting)
@@ -55,13 +56,18 @@ const Project = ({ job }) => {
   }
 
   return (
-    <Container
-      onClick={() => selectionCallback()}
-      selected={selectedJob !== undefined && selectedJob.id === job.id}
-    >
-      <Title job={job} text={job.title}></Title>
-      <Time counting={counting && selected} time={timeConversion(time)}></Time>
-    </Container>
+    <>
+      <Container
+        onClick={() => selectionCallback()}
+        selected={selectedJob !== undefined && selectedJob.id === job.id}
+      >
+        <Title job={job} text={job.title}></Title>
+        <Time
+          counting={counting && selected}
+          time={timeConversion(time)}
+        ></Time>
+      </Container>
+    </>
   )
 }
 
